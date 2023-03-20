@@ -65,7 +65,7 @@ function App() {
   return (
     <div className={darkMode === 0 ? "App" : "AppDarkMode"}>
       <div className="App-header">
-        <Container >
+        <Container>
           <Row>
             <Col>{darkMode === 0 ?
               <BsFillMoonFill className="icons" onClick={() => darkMode === 0 ? setDarkMode(1) : setDarkMode(0)} />
