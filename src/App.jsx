@@ -106,7 +106,7 @@ function App() {
         <Container className={darkMode === 0 ? "texto" : "textoDarkMode"}>
           <Container id="Perfil">
             <Row>
-              Perfil Branch Dev
+              Perfil
             </Row>
             <Container>
               <Row>
