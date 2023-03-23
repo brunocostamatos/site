@@ -7,27 +7,22 @@ import { BsFillMoonFill, BsFillSunFill, BsFillEnvelopeAtFill, BsFileEarmarkFill,
 import { AiFillHtml5, AiFillGithub, AiFillGitlab } from 'react-icons/ai';
 import { FaCss3Alt, FaFigma, FaReact } from 'react-icons/fa';
 import { SiJavascript, SiNodered, SiPython } from 'react-icons/si';
+import Ferramentas from './Ferramentas';
 
 function App() {
   const [darkMode, setDarkMode] = useState(Number(localStorage.getItem("darkMode")));
+  const listaFront = [{ description: "Html", icon: AiFillHtml5 },
+  { description: "Css", icon: FaCss3Alt },
+  { description: "JavaScript", icon: SiJavascript },
+  { description: "Python", icon: SiPython },
+  { description: "React", icon: FaReact }]
+  const listaFerramentas = [{ description: "GitHub", icon: AiFillGithub },
+  { description: "GitLab", icon: AiFillGitlab },
+  { description: "Figma", icon: FaFigma },
+  { description: "Node-Red", icon: SiNodered }]
 
-  const coisas = {
-    listaFront: [
-      { description: "Html", icon: AiFillHtml5 },
-      { description: "Css", icon: FaCss3Alt },
-      { description: "JavaScript", icon: SiJavascript },
-      { description: "Python", icon: SiPython },
-      { description: "React", icon: FaReact }
-    ],
-    listaFerramentas: [
-      { description: "GitHub", icon: AiFillGithub },
-      { description: "GitLab", icon: AiFillGitlab },
-      { description: "Figma", icon: FaFigma },
-      { description: "Node-Red", icon: SiNodered }
-    ]
-  }
 
-  
+
   useEffect(() => {
     localStorage.setItem("darkMode", darkMode);
   }, [darkMode]);
@@ -36,6 +31,7 @@ function App() {
     var element = document.getElementById(idDiv);
     element.scrollIntoView();
   }
+
   function calculateAge() {
     var d1 = 10;
     var m1 = 11;
@@ -102,70 +98,43 @@ function App() {
           </Row>
         </Container>
       </div>
-      <div className="App-body">
-        <Container className={darkMode === 0 ? "texto" : "textoDarkMode"}>
-          <Container id="Perfil">
+      <div className={darkMode === 0 ? "App-body texto" : "App-body textoDarkMode"}>
+        <Container id="Perfil">
+          <Row>
+            Perfil
+          </Row>
+          <Container>
             <Row>
-              Perfil
+              Bruno Costa de Matos
             </Row>
-            <Container>
-              <Row>
-                Bruno Costa de Matos
-              </Row>
-              <Row>
-                Desenvolvedor, Carioca, {calculateAge()} anos
-              </Row>
-              <Row>
-                Front-End
-                <Col className="iconsFerramentas">
-                  {coisas.listaFront.map((element) => (
-                    <Row>
-                      <element.icon />
-                      <div className="descricaoIcon">
-                        {element.description}
-                      </div>
-                    </Row>
-                  ))}
-                </Col>
-              </Row>
-              <Row>
-                Ferramentas
-                <Col className="iconsFerramentas">
-                  {coisas.listaFerramentas.map((element) => (
-                    <Row>
-                      <element.icon />
-                      <div className="descricaoIcon">
-                        {element.description}
-                      </div>
-                    </Row>
-                  ))}
-                </Col>
-                {}
-              </Row>
-            </Container>
+            <Row>
+              Desenvolvedor, Carioca, {calculateAge()} anos
+            </Row>
+            <Ferramentas titulo="Front-End" lista={listaFront} />
+            <Ferramentas titulo="Ferramentas" lista={listaFerramentas} />
           </Container>
-          <hr className={darkMode === 0 ? "" : "lineDarkMode"}></hr>
-          <Container id="Curriculo">
+        </Container>
+        <hr className={darkMode === 0 ? "" : "lineDarkMode"}></hr>
+        <Container id="Curriculo">
+          <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
+            Currículo
+          </Row>
+          <Container>
             <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
-              Currículo
+              Teste
             </Row>
-            <Container>
-              <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
-                Teste
-              </Row>
-            </Container>
           </Container>
-          <hr className={darkMode === 0 ? "" : "lineDarkMode"}></hr>
-          <Container id="Projetos">
-            <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
-              Projetos
-            </Row>
-            <Container>
+        </Container>
+        <hr className={darkMode === 0 ? "" : "lineDarkMode"}></hr>
+        <Container id="Projetos">
+          <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
+            Projetos
+          </Row>
+          <Container>
 
-              <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
-                Teste
-              </Row>
-            </Container>
+            <Row className={darkMode === 0 ? "texto" : "textoDarkMode"}>
+              Teste
+            </Row>
           </Container>
         </Container>
       </div>
